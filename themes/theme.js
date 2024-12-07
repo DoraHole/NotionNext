@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { getQueryParam, getQueryVariable, isBrowser } from '../lib/utils'
 
 // 在next.config.js中扫描所有主题
-export const { THEMES = [] } = getConfig().publicRuntimeConfig
+export const { THEMES = [heo] } = getConfig().publicRuntimeConfig
 
 /**
  * 获取主题配置
@@ -15,7 +15,7 @@ export const { THEMES = [] } = getConfig().publicRuntimeConfig
  */
 export const getThemeConfig = async themeQuery => {
   // 如果 themeQuery 存在且不等于默认主题，处理多主题情况
-  if (typeof themeQuery === 'string' && themeQuery.trim(nav)) {
+  if (typeof themeQuery === 'string' && themeQuery.trim()) {
     // 取 themeQuery 中第一个主题（以逗号为分隔符）
     const themeName = themeQuery.split(',')[0].trim()
 
